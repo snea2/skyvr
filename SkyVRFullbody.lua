@@ -195,11 +195,11 @@ game:GetService("RunService").PostSimulation:Connect(function()
     game.Players.LocalPlayer.CharacterAdded:Wait()
     workspace.CurrentCamera.CameraSubject=VirtualBody.Humanoid
 	workspace.CurrentCamera.HeadScale=1
-	Camera.CFrame = oldcam
+	if oldcam then Camera.CFrame = oldcam end
 	Camera:GetPropertyChangedSignal("CFrame"):Wait()
 	Camera.CameraSubject=VirtualBody.Humanoid
 	workspace.CurrentCamera.HeadScale=1
-	Camera.CFrame = oldcam
+	if oldcam then Camera.CFrame = oldcam end
 	Players.LocalPlayer.CameraMaxZoomDistance = VRReady and 0.1 or 20
 	Players.LocalPlayer.CameraMinZoomDistance = 0.1
 end)
