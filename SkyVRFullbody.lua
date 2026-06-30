@@ -1031,7 +1031,7 @@ local toolcons = {}
 for i,v in plr.Backpack:GetChildren() do 
 	local w = Instance.new("Weld") 	
 	w.Name = "RightGrip" 	
-	w.Parent = plr.Character["Right Arm"] 	
+	w.Parent = plr.Character:FindFirstChild("Right Arm") or plr.Character:FindFirstChild("RightHand") 	
 	w.Part0 = w.Parent 	
 	w.Part1 = v.Handle 	
 	v.Parent = plr.Character 	
@@ -1088,7 +1088,7 @@ plr.CharacterAdded:Connect(function(char)
 	for i,v in plr.Backpack:GetChildren() do 
 		local w = Instance.new("Weld") 	
 		w.Name = "RightGrip" 	
-		w.Parent = char["Right Arm"] 	
+		w.Parent = char:FindFirstChild("Right Arm") or char:FindFirstChild("RightHand") 	
 		w.Part0 = w.Parent 	
 		w.Part1 = v.Handle 	
 		v.Parent = char 	
