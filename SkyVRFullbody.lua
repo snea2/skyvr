@@ -192,16 +192,21 @@ game:GetService("RunService").PostSimulation:Connect(function()
 		workspace.CurrentCamera.HeadScale=1
         oldcam = workspace.CurrentCamera.CFrame
     end
-    game.Players.LocalPlayer.CharacterAdded:Wait()
-    workspace.CurrentCamera.CameraSubject=VirtualBody.Humanoid
-	workspace.CurrentCamera.HeadScale=1
-	if oldcam then Camera.CFrame = oldcam end
-	Camera:GetPropertyChangedSignal("CFrame"):Wait()
-	Camera.CameraSubject=VirtualBody.Humanoid
-	workspace.CurrentCamera.HeadScale=1
-	if oldcam then Camera.CFrame = oldcam end
-	Players.LocalPlayer.CameraMaxZoomDistance = VRReady and 0.1 or 20
-	Players.LocalPlayer.CameraMinZoomDistance = 0.1
+end)
+
+task.spawn(function()
+	while true do
+		game.Players.LocalPlayer.CharacterAdded:Wait()
+		workspace.CurrentCamera.CameraSubject=VirtualBody.Humanoid
+		workspace.CurrentCamera.HeadScale=1
+		if oldcam then Camera.CFrame = oldcam end
+		Camera:GetPropertyChangedSignal("CFrame"):Wait()
+		Camera.CameraSubject=VirtualBody.Humanoid
+		workspace.CurrentCamera.HeadScale=1
+		if oldcam then Camera.CFrame = oldcam end
+		Players.LocalPlayer.CameraMaxZoomDistance = VRReady and 0.1 or 20
+		Players.LocalPlayer.CameraMinZoomDistance = 0.1
+	end
 end)
 
 Character.Humanoid.WalkSpeed = 0
